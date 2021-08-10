@@ -31,7 +31,7 @@ void* get_module_base(pid_t pid,const char* module_name){
     if (fp != NULL){
         while (fgets(line,sizeof(line),fp)){
 //            LOGD("%s",line);
-            if (strstr(line,module_name)){
+            if (strstr(line,module_name) && strstr(line, "com.example.instruction")){
                 pch=strtok(line,"-");
                 addr=strtoul(pch,NULL,16);
                 break;
